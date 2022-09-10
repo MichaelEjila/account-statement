@@ -1,17 +1,150 @@
-<!DOCTYPE HTML>
-
 <html>
-	<head>
-		<title>
-            {% block title%}
-                 Statement
-		    {% endblock %}
-        </title>
-	</head>
+    <head>
+        <title>Summary Statement</title>
+        <link rel="stylesheet" href="style.css">
+		<style type="text/css">
+			.navbar{
+				width: 1265px;
+				height: 40px;
+				margin: auto;
+				background-color:#020D1E;
+			}
+			
+			/* .icon{
+				width: 200px;
+				float: left;
+				height: 400px;
+			} */
+			
+			.logo{
+				color: white;
+				font-size: 20px;
+				font-family: serif;
+				padding-left: 10px;
+				float: left;
+				padding-top: 8px;
+				margin-top: 2px
+			}
+			
+			.menu{
+				width: 400px;
+				float: right;
+				height: 70px;
+			}
+			
+			ul{
+				float: right;
+				display: flex;
+				justify-content: right;
+				align-items: right;
+			}
+			
+			ul li{
+				list-style: none;
+				margin-left: 60px;
+				margin-top: -12px;
+				font-size: 14px;
+			}
+			
+			ul li a{
+				text-decoration: none;
+				color: #00E4AF;
+				font-family: serif;
+				font-weight: bold;
+				transition: 0.4s ease-in-out;
+			}
+			
+			h3{
+				color: #020D1E;
+			}
+			
+			p{
+				margin-top: -14px;
+				color:black;
+			}
+			
+			p2{
+				float: right;
+				justify-content: right;
+				align-items: right;
+				margin-left: 950px;
+				margin-bottom: 10px;
+				margin-top: -100px;
+				line-height: 20px;
+			}
+			
+			p3{
+				color: black;
+				font-weight:bold;
+				text-align: justify;
+			}
+			
+			table{
+				border-collapse:collapse ;
+			}
+			
+			table th {
+				text-align:left;
+				background-color: #86f8c8;
+				color: black;
+				font-style: bold;
+				padding: 4px 100px 4px 8px;
+			}
+			
+			table td{
+				padding: 4px 8px;
+			}
+			
+			.clearfix:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			
+			.clearfix {display: inline-block;}
+			
+		</style>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">bitnob</h2>
+            </div>
 
-	<body>
-        <h1>Test</h1>
-        <p>{{data}}</p>
-	</body>
-		
+            <div class="menu">
+                <ul>
+                    <li><a>Summary Statement<br>
+                    5th may 2022 - 29th August 2022</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <h3>QALA</h3> 
+        <P>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</P>
+        <p2>Bitnob Username:<p3>    Qala</p3><br>
+            Opening Balance in BTC:<p3>     0.01 BTC</p3><br>
+            Closing Balance in BTC:<p3>     8.529994855  BTC</p3><br>
+            Print Date:<p3>     29th August 2022</p3><br>
+        </p2> 
+       <table>
+        <tr>
+            <th>Transaction Date</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>USD Amount</th>
+            <th>BTC Balance</th>
+        </tr>
+		{% for key, value in data.items %} 
+        <tr>
+            <td>{{value.date}}</td>
+            <td>{{value.description}}</td>
+            <td>{{value.transaction_type}}</td>
+            <td>{{value.amount}}</td>
+            <td>{{value.running_balance}}</td>
+        </tr>
+		{% endfor %}
+       </table>
+    </body>
 </html>

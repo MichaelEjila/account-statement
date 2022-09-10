@@ -42,6 +42,7 @@ def index(request):
 
     #Context variable for template
     context = {'data':response_dict}
+    print(response_dict)
     
     #rendering dynamic information into static html to be converted to pdf
     content = render_to_string('main/accounts.html', context)  
