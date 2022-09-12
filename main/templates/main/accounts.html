@@ -15,13 +15,23 @@
 				float: left;
 				height: 400px;
 			} */
-			
-			.logo{
+
+			.heading{
+				display: flex;
+				justify-content: center;
 				color: white;
 				font-size: 20px;
 				font-family: serif;
+				padding-top: 8px;
+				margin-top: 2px
+			}
+			
+			.logo{
+				color: aquamarine;
+				font-size: 20px;
+				font-family: serif;
 				padding-left: 10px;
-				float: left;
+				float: center;
 				padding-top: 8px;
 				margin-top: 2px
 			}
@@ -30,6 +40,7 @@
 				width: 400px;
 				float: right;
 				height: 70px;
+				font-color: white;
 			}
 			
 			ul{
@@ -114,20 +125,19 @@
             </div>
 
             <div class="menu">
-                <ul>
-                    <li><a>Summary Statement<br>
-                    5th may 2022 - 29th August 2022</a></li>
-                </ul>
+				<div class='heading'>
+					<h2 class='logo'>Summary Statement<br>
+					5th may 2022 - 29th August 2022</h2>
+				</div>
             </div>
 
         </div>
-        <h3>QALA</h3> 
-        <P>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</P>
-        <p2>Bitnob Username:<p3>    Qala</p3><br>
-            Opening Balance in BTC:<p3>     0.01 BTC</p3><br>
-            Closing Balance in BTC:<p3>     8.529994855  BTC</p3><br>
-            Print Date:<p3>     29th August 2022</p3><br>
-        </p2> 
+		<h3>{{ user }}</h3> 
+		<p2>Bitnob Username:<p3> {{ user }}</p3><br>
+			Opening Balance in BTC:<p3> {{ opening_balance }} </p3><br>
+			Closing Balance in BTC:<p3>   {{ closing_balance }}</p3><br>
+			Print Date:<p3>{{ date }}</p3><br>
+		</p2> 
        <table>
         <tr>
             <th>Transaction Date</th>
@@ -137,13 +147,13 @@
             <th>BTC Balance</th>
         </tr>
 		{% for key, value in data.items %} 
-        <tr>
-            <td>{{value.date}}</td>
-            <td>{{value.description}}</td>
-            <td>{{value.transaction_type}}</td>
-            <td>{{value.amount}}</td>
-            <td>{{value.running_balance}}</td>
-        </tr>
+			<tr>
+				<td>{{value.date}}</td>
+				<td>{{value.description}}</td>
+				<td>{{value.transaction_type}}</td>
+				<td>{{value.amount}}</td>
+				<td>{{value.running_balance}}</td>
+			</tr>
 		{% endfor %}
        </table>
     </body>
