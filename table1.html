@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Summary Statement</title>
+        <style>
+            h3{
+                color: #020D1E;
+            }
+            
+            p{
+                margin-top: -14px;
+                color:black;
+            }
+            
+            p2{
+                float: right;
+                justify-content: right;
+                align-items: right;
+                margin-left: 950px;
+                margin-bottom: 10px;
+                margin-top: -100px;
+                line-height: 20px;
+            }
+            
+            p3{
+                color: black;
+                font-weight:bold;
+                text-align: justify;
+            }
+            
+            table{
+                border-collapse:collapse ;
+            }
+            
+            table th {
+                background-color: #86f8c8;
+                color: black;
+                font-style: bold;
+            }
+            
+            table td{
+                padding: 4px 8px;
+            }
+            
+            body {
+                background-color: white;
+                margin: 20px;
+            }
+            
+            
+            .heading {
+                display: flex;
+                justify-content: space-between;
+                background-color: #020D1E;
+                color: #86f8c8;
+                height: 100px;
+                padding: 0 30px;
+            }
+            
+            .table_class {
+                width: 110%;
+                margin: 0;
+            }
+            
+            .table_header th{
+                padding-right: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='heading'>
+            <img src='/Users/mac/Django/Bitnob/account_statement/static/img/logo.png'>
+            <span>
+                <h2>Account Statement<br>start - end</h2>
+            </span>
+        </div>
+        <h3>QALA</h3> 
+        <P>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</P>
+        <p2>Bitnob Username:<p3>    Qala</p3><br>
+            Opening Balance in BTC:<p3>     0.01 BTC</p3><br>
+            Closing Balance in BTC:<p3>     8.529994855  BTC</p3><br>
+            Print Date:<p3>     29th August 2022</p3><br>
+        </p2> 
+
+        <div class='table_class'>
+            <table>
+            <tr class='table_header'>
+                <th>Transaction Date</th>
+                <th>Description</th>
+                <th>Transaction Type</th>
+                <th>Transaction Hash</th>
+                <th>Balance in BTC</th>
+            </tr>
+            <tr>
+                <td>2022-08-29</td>
+                <td>Vlad Fomene Btrust Open Source Bitcoin Development Invoice 03</td>
+                <td>Debit</td>
+                <td>BTC</td>
+                <td>8.529994855</td>
+            </tr>
+            <tr>
+                <td>2022-08-24</td>
+                <td>Teamed Invoice QAL2208-GBP-HB126ET3 (Femi Longe August Salary)</td>
+                <td>Debit</td>
+                <td>BTC</td>
+                <td>8.837431075</td>
+            </tr>
+            </table>
+        </div>
+    </body>
+</html>

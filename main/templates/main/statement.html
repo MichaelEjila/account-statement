@@ -1,189 +1,170 @@
 <html>
     <head>
         <title>Summary Statement</title>
-        <link rel="stylesheet" href="style.css">
-		<style type="text/css">
-			.navbar{
-				width: 1265px;
-				height: 40px;
-				margin: auto;
-				background-color:#020D1E;
-			}
+        <style>
 			
-			/* .icon{
-				width: 200px;
-				float: left;
-				height: 400px;
-			} */
-
-			.heading{
-				display: flex;
-				justify-content: center;
-				color: white;
-				font-size: 20px;
-				font-family: serif;
-				padding-top: 8px;
-				margin-top: 2px
-			}
-			
-			.logo{
-				color: aquamarine;
-				font-size: 20px;
-				font-family: serif;
-				padding-left: 10px;
-				float: center;
-				padding-top: 8px;
-				margin-top: 2px
+			@font-face {
+				font-family: Gordita-Medium;
+				src: url('/Users/mac/Django/Bitnob/account_statement/static/gordita-cufonfonts/Gordita Medium.otf');
 			}
 
-			.logo2{
-				color: aquamarine;
-				font-size: 20px;
-				font-family: serif;
-				padding-left: 250px;
-				float: center;
-				padding-top: 12px;
-				margin-top: 2px
+			@font-face {
+				font-family: Gordita-Bold;
+				src: url('/Users/mac/Django/Bitnob/account_statement/static/gordita-cufonfonts\Gordita Bold.otf');
+			}
+
+			@font-face {
+				font-family: Gordita-Regular;
+				src: url('/Users/mac/Django/Bitnob/account_statement/static/gordita-cufonfonts/Gordita Regular.otf');
+			}
+
+			@font-face {
+				font-family: Gordita-Thin;
+				src: url('/Users/mac/Django/Bitnob/account_statement/static/gordita-cufonfonts/Gordita Thin.otf');
+			}
+
+			@font-face {
+				font-family: Gordita-Light;
+				src: url('/Users/mac/Django/Bitnob/account_statement/static/gordita-cufonfonts/Gordita Light.otf');
 			}
 			
-			.menu{
-				width: 400px;
-				float: right;
-				height: 70px;
-				font-color: white;
-			}
-			.body{
-				background-color: slategray;
-			}
-			
-			ul{
-				float: right;
-				display: flex;
-				justify-content: right;
-				align-items: right;
-			}
-			
-			ul li{
-				list-style: none;
-				margin-left: 60px;
-				margin-top: -12px;
-				font-size: 14px;
-			}
-			
-			ul li a{
-				text-decoration: none;
-				color: #00E4AF;
-				font-family: serif;
-				font-weight: bold;
-				transition: 0.4s ease-in-out;
-			}
-			
-			h3{
-				color: #020D1E;
-			}
-			
-			p{
-				margin-top: -14px;
-				color:black;
-			}
-			
-			p2{
-				float: right;
-				justify-content: right;
-				align-items: right;
-				margin-left: 950px;
-				margin-bottom: 10px;
-				margin-top: -100px;
-				line-height: 20px;
-			}
-			
-			p3{
-				color: black;
-				font-weight:bold;
-				text-align: justify;
-			}
-			
-			table{
-				border-collapse:collapse ;
-			}
-			
-			table th {
-				text-align:left;
-				background-color: #86f8c8;
-				color: black;
+            p{
+                margin-top: -14px;
+            }
+            
+            p2{
+                float: right;
+                justify-content: right;
+                margin-left: 10px;
+                margin-bottom: 10px;
+                margin-top: -100px;
+				margin-right: 0;
+				padding-right:50px;
+				padding-bottom:50px;
+            }
+            
+            p3{
+                color: black;
+                font-weight:bold;
+                text-align: justify;
+				padding-left: 20px;
+            }
+            
+            table{
+                border-collapse:collapse ;
+            }
+            
+            table th {
+                background-color: #EFFEF9;
+                color: black;
+                font-style: bold;
+				font-size: 18px;
+				font-family:  Gordita-Medium; 
+            }
+            
+            table td{
+                padding: 4px 8px;
 				font-style: bold;
-				padding: 4px 100px 4px 8px;
+				font-size: 18px;
+				font-family:  Gordita-Light; 
+            }
+            
+            body {
+                background-color: white;
+            }
+            
+            
+            .heading {
+                display: flex;
+                justify-content: space-between;
+				gap:20px;
+                background-color: #020D1E;
+                color: #24FEB7;
+                height: 100px;
+                padding: 0;
+            }
+            
+            .table_class {
+                width: 110%;
+                margin: 0;
+            }
+            
+            .table_header th{
+                padding-right: 160px;
+            }
+			.name{
+				float:left
 			}
-			
-			table td{
-				padding: 4px 8px;
+			img{
+				padding-top:15px;
+				padding-left:20px;
+				zoom:200%;
 			}
-			
-			.clearfix:after {
-				content: ".";
-				display: block;
-				height: 0;
-				clear: both;
-				visibility: hidden;
-			}
-			
-			.clearfix {display: inline-block;}
-			
-		</style>
+
+        </style>
     </head>
     <body>
-        <div class="navbar">
-            <div class="icon">
-                <h2 class="logo">bitnob</h2>
-            </div>
-
-            <div class="menu">
-				<div class='heading'>
-					<h1 class='logo2'>Summary Statement</h1>
-				</div>
-            </div>
-
+        <div class='heading'>
+            <img src='/Users/mac/Django/Bitnob/account_statement/static/img/logo.png'>
+            <div style='float:right; padding-buttom:20px'>
+                <h2 style='font-size:20px; padding-top:20px; padding-right:10px; padding-left:38px; font-family: Gordita-Medium; padding-left:15px; padding-left:40px;'>Summary Statement</h2>
+				<h2  style='font-size:15px; margin:0px; padding-right:20px; padding-left:15px; font-family: Gordita-Medium; padding-left:15px; padding-bottom:10px;'>2nd September - 2nd October</h2>
+			</div>
         </div>
-		<h3>Qala</h3> 
-		<p2>Bitnob Username:<p3> Qala</p3><br>
-			Opening Balance in BTC:<p3> Opening Balance </p3><br>
-			Closing Balance in BTC:<p3>   Closing Balance</p3><br>
-			Print Date:<p3>Sept. 12, 2022</p3><br>
-			Time Frame: <p3>2nd September - 2nd October</p3>
-		</p2> 
-       <table>
-        <tr>
-            <th>Transaction Date</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>USD Amount</th>
-            <th>BTC Balance</th>
-        </tr>
-		 
-			<tr>
-				<td>2022-09-09T09:41:57.867838Z</td>
-				<td>blublu</td>
-				<td>credit</td>
-				<td>0</td>
-				<td>0.00</td>
-			</tr>
-		 
-			<tr>
-				<td>2022-09-09T09:41:57.867838ZZ</td>
-				<td>trans2</td>
-				<td>credit</td>
-				<td>0</td>
-				<td>0.00</td>
-			</tr>
-		 
-			<tr>
-				<td>2022-09-09T09:41:57.867838ZZ</td>
-				<td>trans3</td>
-				<td>credit</td>
-				<td>0</td>
-				<td>0.00</td>
-			</tr>
-		
-       </table>
+		<div class='name'>
+			<h3 style='font-family: Gordita-Medium; color:#010F; padding-top:0px; font-size:25px; text-color:  #031735; -webkit-text-stroke: 1px #24FEB7;'>
+				Qala
+			</h3> 
+			
+			<p style='font-family:  Gordita-Medium; font-size:20px; color: #031735'>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</p>
+		</div>
+        <h3 style='font-family:Gordita-Thin; float:right; padding-top:20px font-size:25px; line-height:40px;'>
+			Bitnob Username:<p3 style='padding-left:80px;'> Qala</p3><br>
+            Opening Balance in BTC:<p3 style='padding-left:10px;'>  0.01 </p3><br>
+            Closing Balance in BTC:<p3 style='padding-left:18px;'> 8.529994855</p3><br>
+            Print Date:<p3 style='padding-left:150px;'>Sept. 15, 2022</p3><br>
+		</h3> 
+
+        <div class='table_class'>
+            <table>
+            <tr class='table_header'>
+                <th>Transaction Date</th>
+                <th>Description</th>
+                <th>Transaction Type</th>
+                <th>Transaction Hash</th>
+                <th>Balance in BTC</th>
+            </tr>
+			
+				<tr>
+					<td>2022-09-09T09:41:57.867838Z</td>
+					<td>Vlad Fomene Btrust Open Source Bitcoin Development Invoice 03</td>
+					
+						<td style='color:green; padding-left:20px'>Credit</td>
+					
+					<td style='padding-left:20px'>0 BTC</td>
+					<td style='padding-left:10px'>0.00</td>
+				</tr>
+			
+				<tr>
+					<td>2022-09-09T09:41:57.867838ZZ</td>
+					<td>Teamed Invoice QAL2208-GBP-HB126ET3 (Femi Longe August Salary)</td>
+					
+						<td style='padding-left:20px'>Debit</td>
+					
+					<td style='padding-left:20px'>0 BTC</td>
+					<td style='padding-left:10px'>0.00</td>
+				</tr>
+			
+				<tr>
+					<td>2022-09-09T09:41:57.867838ZZ</td>
+					<td>Vlad Fomene Btrust Laptop Invoice</td>
+					
+						<td style='color:green; padding-left:20px'>Credit</td>
+					
+					<td style='padding-left:20px'>0 BTC</td>
+					<td style='padding-left:10px'>0.00</td>
+				</tr>
+			
+		</div>
     </body>
 </html>

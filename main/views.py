@@ -1,10 +1,11 @@
 #imports
 from django.shortcuts import render
 from django.template.loader import render_to_string
-from django.http import HttpResponse
+from django.http import HttpResponse,FileResponse
 from datetime import datetime
 
 from .process import html_to_pdf 
+import pdfkit
 import json
 
 def sort(json_data):
@@ -39,9 +40,9 @@ def sort(json_data):
         response_dict['Transaction{}'.format(i+1)]= parsedData[i]
     return response_dict
 
-def convert(response_dict, user, opening_balance, closing_balance, date, start_date, end_date):
+def convert(response_dict, user, opening_balance, closing_balance, date, start_date, end_date,amount):
     #Context variable for template
-    context = {'data':response_dict, 'opening_balance':opening_balance,'closing_balance':closing_balance,'user': user, 'date': date, 'start_date':start_date, 'end_date':end_date }
+    context = {'data':response_dict, 'opening_balance':opening_balance,'closing_balance':closing_balance, 'amount':amount, 'user': user, 'date': date, 'start_date':start_date, 'end_date':end_date }
     
     #rendering dynamic information into static html to be converted to pdf
     content = render_to_string('main/accounts.html', context)  
@@ -50,9 +51,16 @@ def convert(response_dict, user, opening_balance, closing_balance, date, start_d
         static_file.write(content)
 
     #converting dynamic html into pdf
-    pdf = html_to_pdf('main/statement.html')
+    options = {
+        'page-size':'Letter',
+        'encoding':'UTF-8',
+        "enable-local-file-access": None,
+    }
+    pdf = pdfkit.from_file('/Users/mac/Django/Bitnob/account_statement/main/templates/main/statement.html','out.pdf',options=options)
 
-    return pdf
+    response = FileResponse(open('out.pdf', 'rb'))
+
+    return response
 
 # Create your views here.
 def index(request):
@@ -64,8 +72,7 @@ def index(request):
     date1 = datetime1.date()
 
     response_dict = sort(json_data)
-    pdf = convert(response_dict, 'Qala', 'Opening Balance', 'Closing Balance', date1, '2nd September', '2nd October')
-    
+    pdf = convert(response_dict, 'Qala', '0.01 ', '8.529994855', date1, '2nd September', '2nd October','8.529994855')
     #rendering pdf 
     return HttpResponse(pdf, content_type='application/pdf')
     
