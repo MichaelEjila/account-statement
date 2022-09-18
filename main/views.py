@@ -72,7 +72,7 @@ def index(request):
     date1 = datetime1.date()
 
     response_dict = sort(json_data)
-    pdf = convert(response_dict, 'Qala', '0.01 ', '8.529994855', date1, '2nd September', '2nd October','8.529994855')
+    pdf = convert(response_dict, 'QALA', '0.01 ', '8.529994855', date1, '2nd September', '2nd October','8.529994855')
     #rendering pdf 
     return HttpResponse(pdf, content_type='application/pdf')
     
