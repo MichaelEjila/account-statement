@@ -3,7 +3,7 @@
         <title>Summary Statement</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@300&family=Roboto&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@300;700&family=Roboto&display=swap" rel="stylesheet">
         <style>
 			
             p{
@@ -23,9 +23,9 @@
             
             p3{
                 color: black;
-                font-weight:bold;
                 text-align: justify;
 				padding-left: 20px;
+				font-weight: 700;
             }
             
             table{
@@ -71,7 +71,7 @@
                 padding-right: 160px;
             }
 			.name{
-				float:left
+				float:left;
 			}
 			img{
 				padding-top:15px;
@@ -90,14 +90,14 @@
 			</div>
         </div>
 		<div class='name'>
-			<h3 style='font-family: Roboto, sans-serif; color:#010F; padding-top:0px; font-size:25px; text-color:  #031735; -webkit-text-stroke: 1px #24FEB7;'>
+			<h3 style='font-family: Roboto, sans-serif; color:#010F; padding-top:0px; font-size:25px; text-color:#031735; -webkit-text-stroke: 1px #24FEB7;'>
 				{{ user }}
 			</h3> 
 			
 			<p style='font-family: Noto Sans, sans-serif; font-size:20px; color: #031735'>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</p>
 		</div>
-        <h3 style='font-family: Raleway; float:right; padding-top:20px font-size:25px; line-height:40px;'>
-			Bitnob Username:<p3 style='padding-left:70px; font-weight:bold;'> {{ user }}</p3><br>
+        <h3 style='font-family: Raleway; float:right; padding-top:20px font-size:25px; line-height:40px; font-weight:300;'>
+			Bitnob Username:<p3 style='padding-left:70px;'> {{ user }}</p3><br>
             Opening Balance in BTC:<p3 style='padding-left:10px;'>  {{ opening_balance }}</p3><br>
             Closing Balance in BTC:<p3 style='padding-left:18px;'> {{ closing_balance }}</p3><br>
             Print Date:<p3 style='padding-left:140px;'>{{ date }}</p3><br>

@@ -27,6 +27,7 @@ def sort(json_data):
             transData['description'] = parsed_json[data][i]['description']
             transData['running_balance'] = parsed_json[data][i]['running_balance']
             transData['transaction_type'] = parsed_json[data][i]['transaction_type']
+            transData['currency'] = parsed_json[data][i]['currency']
 
             #adding each transaction information to list of transactions
             parsedData.append(transData.copy())
@@ -45,7 +46,7 @@ def convert(response_dict, user, opening_balance, closing_balance, date, start_d
     context = {'data':response_dict, 'opening_balance':opening_balance,'closing_balance':closing_balance, 'amount':amount, 'user': user, 'date': date, 'start_date':start_date, 'end_date':end_date }
     
     #rendering dynamic information into static html to be converted to pdf
-    content = render_to_string('main/accounts.html', context)  
+    content = render_to_string('main/joint_statement.html', context)  
     #writing dynamic information into static html            
     with open('main/templates/main/statement.html', 'w') as static_file:
         static_file.write(content)

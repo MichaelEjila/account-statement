@@ -1,11 +1,10 @@
 <html>
     <head>
         <title>Summary Statement</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@300&family=Roboto&display=swap" rel="stylesheet">
-        <style>
-			
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@300;700&family=Roboto&display=swap" rel="stylesheet">
+<style>	
             p{
                 margin-top: -14px;
             }
@@ -23,7 +22,7 @@
             
             p3{
                 color: black;
-                font-weight:bold;
+                font-weight:700;
                 text-align: justify;
 				padding-left: 20px;
             }
@@ -71,7 +70,7 @@
                 padding-right: 160px;
             }
 			.name{
-				float:left
+				float:left;
 			}
 			img{
 				padding-top:15px;
@@ -83,25 +82,29 @@
     </head>
     <body>
         <div class='heading'>
-            <img src='/Users/mac/Django/Bitnob/account_statement/static/img/logo.png'>
-            <div style='float:right; padding-buttom:20px'>
+            <img src='https://res.cloudinary.com/munirat96/image/upload/v1663331368/logo_axaznf.png'>
+            <div style='float:right; padding-bottom:20px'>
                 <h2 style='font-size:20px; padding-top:20px; padding-right:10px; padding-left:38px; font-family: Noto Sans, sans-serif; padding-left:15px; '>Summary Statement</h2>
 				<h2  style='font-size:15px; margin:0px; padding-right:20px; padding-left:15px; font-family: Noto Sans, sans-serif; padding-left:5px; padding-bottom:10px;'>2nd September - 2nd October</h2>
 			</div>
         </div>
 		<div class='name'>
-			<h3 style='font-family: Roboto, sans-serif; color:#010F; padding-top:0px; font-size:25px; text-color:  #031735; -webkit-text-stroke: 1px #24FEB7;'>
+			<h3 style='font-family: Roboto, sans-serif; color:#010F; padding-top:0px; font-size:25px; -webkit-text-stroke: 1px #24FEB7;'>
 				QALA
 			</h3> 
-			
 			<p style='font-family: Noto Sans, sans-serif; font-size:20px; color: #031735'>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</p>
-		</div>
-        <h3 style='font-family: Raleway; float:right; padding-top:20px font-size:25px; line-height:40px;'>
-			Bitnob Username:<p3 style='padding-left:70px; font-weight:bold;'> QALA</p3><br>
+        </div>
+        <h3 style='font-family: Raleway; font-size:20px;line-height:40px;font-weight:300; padding-left:1080px;'>
+            Bitnob Username:<p3 style='padding-left:75px;'> QALA</p3><br>
+            Opening Balance in USD:<p3 style='padding-left:10px;'>  0.01 </p3><br>
+            Closing Balance in USD:<p3 style='padding-left:18px;'> 8.529994855</p3><br>
             Opening Balance in BTC:<p3 style='padding-left:10px;'>  0.01 </p3><br>
             Closing Balance in BTC:<p3 style='padding-left:18px;'> 8.529994855</p3><br>
-            Print Date:<p3 style='padding-left:140px;'>Sept. 18, 2022</p3><br>
-		</h3> 
+            Print Date:<p3 style='padding-left:145px;'>Sept. 19, 2022</p3><br>
+        </h3>
+
+        
+        </div>
 
         <div class='table_class'>
             <table>
@@ -109,38 +112,45 @@
                 <th>Transaction Date</th>
                 <th>Description</th>
                 <th>Transaction Type</th>
-                <th>Transaction Hash</th>
-                <th>Balance in BTC</th>
+				<th>Wallet Currency</th>
+                <th>Amount in BTC</th>
+                <th>Amount in USD</th>
             </tr>
 			
 				<tr>
 					<td>2022-09-09T09:41:57.867838Z</td>
 					<td>Vlad Fomene Btrust Open Source Bitcoin Development Invoice 03</td>
+					<td style='padding-left:30px'>Credit</td>
+					<td>USD</td>
 					
-						<td style='color:green; padding-left:20px'>Credit</td>
+						<td style='color:green;padding-left:20px'>0</td><!-- BTC --> 
+                        <td style='color:green;padding-left:20px'>0</td><!-- USD --> 
 					
-					<td style='padding-left:40px'>0</td>
-					<td style='padding-left:10px'>0.00 BTC</td>
+					
 				</tr>
 			
 				<tr>
 					<td>2022-09-09T09:41:57.867838ZZ</td>
 					<td>Teamed Invoice QAL2208-GBP-HB126ET3 (Femi Longe August Salary)</td>
+					<td style='padding-left:30px'>Debit</td>
+					<td>BTC</td>
 					
-						<td style='padding-left:20px'>Debit</td>
+						<td style='padding-left:20px'>0</td><!-- BTC --> 
+                        <td style='padding-left:20px'>0</td><!-- USD --> 
 					
-					<td style='padding-left:40px'>0</td>
-					<td style='padding-left:10px'>0.00 BTC</td>
+					
 				</tr>
 			
 				<tr>
 					<td>2022-09-09T09:41:57.867838ZZ</td>
 					<td>Vlad Fomene Btrust Laptop Invoice</td>
+					<td style='padding-left:30px'>Credit</td>
+					<td>USD</td>
 					
-						<td style='color:green; padding-left:20px'>Credit</td>
+						<td style='color:green;padding-left:20px'>0</td><!-- BTC --> 
+                        <td style='color:green;padding-left:20px'>0</td><!-- USD --> 
 					
-					<td style='padding-left:40px'>0</td>
-					<td style='padding-left:10px'>0.00 BTC</td>
+					
 				</tr>
 			
 		</div>
