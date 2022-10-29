@@ -5,11 +5,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway:wght@300;700&family=Roboto&display=swap" rel="stylesheet">
 <style>	
-       p{
+             p{
                 margin-top: -14px;
             }
             
-        p2{
+            p2{
                 float: right;
                 justify-content: right;
                 margin-left: 10px;
@@ -20,7 +20,7 @@
 				padding-bottom:50px;
             }
             
-        p3{
+            p3{
                 color: black;
                 font-weight:700;
                 text-align: justify;
@@ -29,8 +29,7 @@
             
             table{
                 border-collapse:collapse ;
-				
-				
+                width: 100%;
             }
             .table_header{
 				height: 70px;
@@ -40,23 +39,18 @@
                 background-color: #EFFEF9;
                 color: black;
                 font-weight: 700;
-				font-size: 24px;
+				font-size: 22px;
 				font-family: Noto Sans, sans-serif;
                 /* line-height: 30px; */
                 text-align: left;
             }
-			th, td {
-                text-align: left;
-                /* padding: 10px; */
-                }
             
             table td{
-                /* padding: 4px 8px;  */
+                /* padding: 4px; */
 				font-weight: 500;
 				font-size: 24px;
 				font-family: Raleway;
-                text-align: left;
-				
+                text-align: left; 
             }
             
             body {
@@ -73,16 +67,22 @@
                 height: 100px;
                 padding: 0;
             }
+
+            th, td {
+                text-align: left;
+                padding: 8px;
+                }
             
             .table_class {
-                width: 110%;
+                width: 100%;
                 margin: 0;
-                /* text-align: left;
-                align-content: justify;  */
+                
+                /* text-align: left; */
+                /* align-content: left; */
             }
             
             .table_header th{
-                padding-right: 130px;
+                padding-right: 160px;
                 font-weight: bold;
                 
             }
@@ -99,6 +99,7 @@
 				padding-left:20px;
 				zoom:200%;
 			}
+
         </style>
     </head>
     <body>
@@ -106,60 +107,47 @@
             <img src='https://res.cloudinary.com/munirat96/image/upload/v1663331368/logo_axaznf.png'>
             <div style='float:right; padding-bottom:20px'>
                 <h2 style='font-size:20px; padding-top:20px; padding-right:10px; padding-left:38px; font-family: Noto Sans, sans-serif; padding-left:15px; '>Account Statement</h2>
-				<h2  style='font-size:15px; margin:0px; padding-right:20px; padding-left:15px; font-family: Noto Sans, sans-serif; padding-left:5px; padding-bottom:10px;'>{{fro}} - {{to}}</h2>
+				<h2  style='font-size:15px; margin:0px; padding-right:20px; padding-left:15px; font-family: Noto Sans, sans-serif; padding-left:5px; padding-bottom:10px;'>{{ fro }} - {{ to }}</h2>
 			</div>
         </div>
-    <div class='top'>
-		<div class='name'>
-			<h3 style='font-family: Roboto, sans-serif; color:#010F; padding-top:0px; font-size:30px; -webkit-text-stroke: 1px #24FEB7;'>
-				{{ name }}
-			</h3> 
-			
-			<p style='font-family: Noto Sans, sans-serif; font-size:20px; color: #031735'>{{address}},<br> {{city}}, <br>{{state}}, <br> {{country}}.</p>
-		</div>
-        <h3 style='font-family: Raleway; float:right;font-size:20px;line-height:40px;padding-left:470px;font-weight:300;'>
-			Bitnob Username:<p3 style='padding-left:75px;'> {{ user }}</p3><br>
-            Opening Balance in BTC:<p3 style='padding-left:10px;'>  {{ opening_balance_btc }}</p3><br>
-            Closing Balance in BTC:<p3 style='padding-left:18px;'> {{ closing_balance_btc }}</p3><br>
-            Print Date:<p3 style='padding-left:150px;'>{{ today }}</p3><br>
-		</h3> 
-    </div>
+        <div class='top'>
+            <div class='name'>
+                <h3 style='font-family: Roboto, sans-serif; color:#010F; padding-top:0px; font-size:30px; -webkit-text-stroke: 1px #24FEB7;'>
+                    {{ name }}
+                </h3> 
+                
+                <p style='font-family: Noto Sans, sans-serif; font-size:20px; color: #031735'>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</p>
+            </div>
+            <h3 style='font-family: Raleway; float:right;font-size:20px;line-height:40px;padding-left:300px;font-weight:300;'>
+                Bitnob Username:<p3 style='padding-left:75px;'> {{ user }}</p3><br>
+                Opening Balance in USD:<p3 style='padding-left:10px;'>  {{ opening_balance_usd }}</p3><br>
+                Closing Balance in USD:<p3 style='padding-left:18px;'> {{ closing_balance_usd }}</p3><br>
+                Print Date:<p3 style='padding-left:150px;'>{{ today }}</p3><br>
+            </h3> 
+        </div>
+
         <div class='table_class'>
             <table>
             <tr class='table_header'>
                 <th>Transaction Date</th>
                 <th>Description</th>
                 <th>Transaction Type</th>
-				<th>Transaction Hash</th>
-                <th>Amount(BTC)</th>
-               
+                <th>Amount</th>
+                <!-- <th>Balance in USD</th> -->
             </tr>
-			{% for k in transactions %} 
+			{% for key, value in data.items %}
 				<tr>
-					<td>{{k.created_at}}</td>
-					<td>{{k.description}}</td>
-					<td>{{k.transaction_type}}</td>
-					<td style="word-break: break-word;">{{k.transaction_hash}}</td>
-					{% if k.transaction_type.title == 'credit' %}
-						<td style='color:green;'>{{k.btc_amount}}</td>
+					<td>{{value.date}}</td>
+					<td>{{value.description}}</td>
+					{% if value.transaction_type == 'Credit' %}
+						<td style='color:green;'>{{value.transaction_type}}</td>
 					{% else %}
-						<td>{{k.btc_amount}}</td>
+						<td>{{value.transaction_type}}</td>
 					{% endif %}
-					
+					<td style='padding-left:40px'>{{value.amount}}</td>
+					<td style='padding-left:10px'>{{value.running_balance}} BTC</td>
 				</tr>
 			{% endfor %}
 		</div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

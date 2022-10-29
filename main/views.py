@@ -5,6 +5,8 @@ from django.http import HttpResponse,FileResponse
 from datetime import datetime
 
 from .process import html_to_pdf 
+from .pdfc import compress
+
 import pdfkit
 import json
 
@@ -43,23 +45,26 @@ def sort(json_data):
 
 def convert(response_dict, user, opening_balance, closing_balance, date, start_date, end_date,amount):
     #Context variable for template
-    context = {'data':response_dict, 'opening_balance':opening_balance,'closing_balance':closing_balance, 'amount':amount, 'user': user, 'date': date, 'start_date':start_date, 'end_date':end_date }
+    context = {'data':response_dict, 'opening_balance_usd':opening_balance,'closing_balance_usd':closing_balance, 'amount':amount, 'user': user, 'today': date, 'start_date':start_date, 'end_date':end_date }
     
     #rendering dynamic information into static html to be converted to pdf
-    content = render_to_string('main/joint_statement.html', context)  
+    content = render_to_string('main/joint_accounts.html', context)  
     #writing dynamic information into static html            
     with open('main/templates/main/statement.html', 'w') as static_file:
         static_file.write(content)
 
     #converting dynamic html into pdf
     options = {
-        'page-size':'Letter',
+        'page-size':'Tabloid',
         'encoding':'UTF-8',
         "enable-local-file-access": None,
     }
     pdf = pdfkit.from_file('/Users/mac/Django/Bitnob/account_statement/main/templates/main/statement.html','out.pdf',options=options)
 
     response = FileResponse(open('out.pdf', 'rb'))
+
+    if pdf._size > 10485760:
+        compress(pdf, pdf, power=4)
 
     return response
 
@@ -73,7 +78,7 @@ def index(request):
     date1 = datetime1.date()
 
     response_dict = sort(json_data)
-    pdf = convert(response_dict, 'QALA', '0.01 ', '8.529994855', date1, '2nd September', '2nd October','8.529994855')
+    pdf = convert(response_dict, 'Munirat Oyiwola', '0.01 ', '8.529994855', date1, '2nd September', '2nd October','8.529994855')
     #rendering pdf 
     return HttpResponse(pdf, content_type='application/pdf')
     

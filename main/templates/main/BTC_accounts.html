@@ -29,8 +29,8 @@
             
             table{
                 border-collapse:collapse ;
-				
-				
+				/* width:100%;  */
+			
             }
             .table_header{
 				height: 70px;
@@ -47,7 +47,7 @@
             }
 			th, td {
                 text-align: left;
-                /* padding: 10px; */
+                padding: 8px;
                 }
             
             table td{
@@ -82,8 +82,9 @@
             }
             
             .table_header th{
-                padding-right: 130px;
+                padding-right: 160px;
                 font-weight: bold;
+				vertical-align:top;
                 
             }
 			.name{
@@ -115,9 +116,9 @@
 				{{ name }}
 			</h3> 
 			
-			<p style='font-family: Noto Sans, sans-serif; font-size:20px; color: #031735'>{{address}},<br> {{city}}, <br>{{state}}, <br> {{country}}.</p>
+			<p style='font-family: Noto Sans, sans-serif; font-size:20px; color: #031735'>House number 7, Olufumilola <br> Okikiolu Street, Off Toyin Street <br>Ikeja, <br> Lagos, Nigeria.</p>
 		</div>
-        <h3 style='font-family: Raleway; float:right;font-size:20px;line-height:40px;padding-left:470px;font-weight:300;'>
+        <h3 style='font-family: Raleway; float:right;font-size:20px;line-height:40px;padding-left:550px;font-weight:300;'>
 			Bitnob Username:<p3 style='padding-left:75px;'> {{ user }}</p3><br>
             Opening Balance in BTC:<p3 style='padding-left:10px;'>  {{ opening_balance_btc }}</p3><br>
             Closing Balance in BTC:<p3 style='padding-left:18px;'> {{ closing_balance_btc }}</p3><br>
@@ -129,37 +130,25 @@
             <tr class='table_header'>
                 <th>Transaction Date</th>
                 <th>Description</th>
-                <th>Transaction Type</th>
+                <th style="padding-right:20px;">Transaction Type</th>
 				<th>Transaction Hash</th>
                 <th>Amount(BTC)</th>
                
             </tr>
-			{% for k in transactions %} 
+			{% for key, value in data.items %}
 				<tr>
-					<td>{{k.created_at}}</td>
-					<td>{{k.description}}</td>
-					<td>{{k.transaction_type}}</td>
-					<td style="word-break: break-word;">{{k.transaction_hash}}</td>
-					{% if k.transaction_type.title == 'credit' %}
-						<td style='color:green;'>{{k.btc_amount}}</td>
+					<td>{{value.date}}</td>
+					<td>{{value.description}}</td>
+					{% if value.transaction_type == 'Credit' %}
+						<td style='color:green;'>{{value.transaction_type}}</td>
 					{% else %}
-						<td>{{k.btc_amount}}</td>
+						<td>{{value.transaction_type}}</td>
 					{% endif %}
-					
+					<td style='padding-left:40px'>{{value.amount}}</td>
+					<td style='padding-left:10px'>{{value.running_balance}} BTC</td>
 				</tr>
 			{% endfor %}
+			</table>
 		</div>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

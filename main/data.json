@@ -19,7 +19,7 @@
             "description": "Vlad Fomene Btrust Open Source Bitcoin Development Invoice 03",
             "recipient": "none",
             "note": "none",
-            "created_at": "2022-09-09T09:41:57.867838Z",
+            "created_at": "2022-09-09",
             "currency": "USD"
         },
  {
@@ -41,7 +41,7 @@
             "description": "Teamed Invoice QAL2208-GBP-HB126ET3 (Femi Longe August Salary)",
             "recipient": "none",
             "note": "none",
-            "created_at": "2022-09-09T09:41:57.867838ZZ",
+            "created_at": "2022-09-09",
             "currency": "BTC"
         },
         {
@@ -63,7 +63,7 @@
             "description": "Vlad Fomene Btrust Laptop Invoice",
             "recipient": "none",
             "note": "none",
-            "created_at": "2022-09-09T09:41:57.867838ZZ",
+            "created_at": "2022-09-09",
             "currency": "USD"
         }
     ]
